@@ -1,0 +1,42 @@
+﻿@using SeriesMoviesProjectver2.Models.Entity
+@model PagedList.IPagedList<Tbl_Movies>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+<body>
+    <form>
+
+        <table class="table table-bordered" width="100%">
+
+            <tr>
+                <th>FİLM</th>
+                <th>YÖNETMEN</th>
+                <th>AÇIKLAMA</th>
+                <th>IMDB</th>
+                <th>IMAGE</th>
+                <th>KATEGORİ</th>
+            </tr>
+            @foreach (var movies in Model)
+            {
+                <tr>
+                    <td>@movies.MoviesName</td>
+                    <td>@movies.Director</td>
+                    <td>@movies.Description</td>
+                    <td>@movies.IMDB</td>
+                    <td><img src="@movies.Image" width="300px"></td>
+                    <td>@movies.Tbl_Category.CategoryName</td>
+                </tr>
+            }
+
+        </table>
+
+        @Html.PagedListPager((IPagedList)Model, values => Url.Action("Index", new { values }))
+
+    </form>
+   
+
+</body>

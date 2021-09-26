@@ -1,0 +1,42 @@
+﻿@using SeriesMoviesProjectver2.Models.Entity
+@model List<Tbl_Books>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<link href="~/Content/Site.css" rel="stylesheet" />
+<body>
+    <form>
+
+        <table class="table table-bordered" width="100%">
+
+            <tr>
+                <th>KİTAP ADI</th>
+                <th>YAZAR</th>
+                <th>ÇIKIŞ TARİHİ</th>
+                <th>IMAGE</th>
+                <th>KATEGORİ</th>
+                    
+
+            </tr>
+            @foreach (var book in Model)
+            {
+        <tr>
+            <td>@book.BookName</td>
+            <td>@book.Writer</td>
+            <td>@book.ReleaseYear</td>
+            <td><img src="@book.Image" width="300px"></td>
+            <td>@book.Tbl_Category.CategoryName</td>
+            
+        </tr>
+            }
+
+        </table>
+
+
+
+    </form>
+
+
+</body>

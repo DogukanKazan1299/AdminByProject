@@ -1,0 +1,37 @@
+﻿@using SeriesMoviesProjectver2.Models.Entity
+@model List<Tbl_Comment>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+<body>
+    <form>
+
+        <table class="table table-bordered" width="100%">
+
+            <tr>
+                <th>#</th>
+                <th>YORUM</th>
+                <th>KULLANICI ADI</th>
+               
+            </tr>
+            @foreach (var comment in Model)
+            {
+                <tr>
+                    <td>@comment.ID</td>
+                    <td>@comment.Comment</td>
+                    <td>@comment.Username</td>
+                    
+                </tr>
+            }
+
+        </table>
+
+       
+
+    </form>
+
+
+</body>
+
